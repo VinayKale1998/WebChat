@@ -53,10 +53,10 @@ function App() {
     }
 
 
-    function enterHandler(data)
+    function enterHandler(message)
     {
       
-      console.log(data.message)
+      setMessages(prev=>[...prev,message]);
     }
 
     function groupUsersHandler(data)
@@ -100,7 +100,7 @@ function App() {
 
         },
         {
-          path:"/:group/:user",
+          path:"/:group/:userName",
           element:<ChatPage groupUsers={groupUsers} user={user} messages={messages}></ChatPage>
         }
       ]
