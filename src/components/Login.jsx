@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { socket } from "../Socket";
 import {useNavigate} from "react-router-dom";
+import { slideIn } from "../utils/motion";
+import {motion } from "framer-motion";
 
 const Login = ({loggedIn,loginError}) => {
   const [group, setGroup] = useState("FrontEnd");
@@ -33,7 +35,7 @@ useEffect(()=>{
 
   };
   return (
-    <div className="flex flex-col sm:mx-[10vw] items-center md:mx-[20vw] lg:mx-[30vw] xl:mx-[30vw] text-sm sm:text-sm md:text-md lg:text-xl  sm:my-10 h-[100vh]  border-2 sm:min-h-[50vh]   sm:max-h-[50vh]  bg-blue-100  md:min-h-[50vh]">
+    <motion.div variants={slideIn("up", "tween",0.1,0.3)}  initial="hidden" whileInView="show"  className="flex flex-col sm:mx-[10vw] items-center md:mx-[20vw] lg:mx-[30vw] xl:mx-[30vw] text-sm sm:text-sm md:text-md lg:text-xl  sm:my-10 h-[100vh]  border-2 sm:min-h-[50vh]   sm:max-h-[50vh]  bg-blue-100  md:min-h-[50vh]">
       <div className="min-w-full  py-2 bg-blue-600  md:text-2xl text-center text-white">
         {" "}
         Login
@@ -83,7 +85,7 @@ useEffect(()=>{
           Enter Chat
         </button>
       </div>
-    </div>
+    </motion.div >
   );
 };
 
